@@ -443,28 +443,28 @@ public class AddressServiceImpl implements IAddressService {
                 .build();
         balanceList.add(balanceDto1);
 
-        //waiting bound ONG
-        String waitBoundOng = calculateWaitingBoundOng(address, (new BigDecimal((String) balanceMap.get(ConstantParam.ONT)).divide(ConstantParam.NEW_ONT_DECIMAL)));
-        BalanceDto balanceDto2 = BalanceDto.builder()
-                .assetName(ConstantParam.WAITBOUND_ONG)
-                .assetType(ConstantParam.ASSET_TYPE_NATIVE)
-                .balance((new BigDecimal(waitBoundOng)))
-                .contractHash(ConstantParam.CONTRACTHASH_ONG)
-                .build();
-        balanceList.add(balanceDto2);
+        // //waiting bound ONG
+        // String waitBoundOng = calculateWaitingBoundOng(address, (new BigDecimal((String) balanceMap.get(ConstantParam.ONT)).divide(ConstantParam.NEW_ONT_DECIMAL)));
+        // BalanceDto balanceDto2 = BalanceDto.builder()
+        //         .assetName(ConstantParam.WAITBOUND_ONG)
+        //         .assetType(ConstantParam.ASSET_TYPE_NATIVE)
+        //         .balance((new BigDecimal(waitBoundOng)))
+        //         .contractHash(ConstantParam.CONTRACTHASH_ONG)
+        //         .build();
+        // balanceList.add(balanceDto2);
 
-        //Claimable ONG
-        String unBoundOng = sdk.getUnBoundOng(address);
-        if (Helper.isEmptyOrNull(unBoundOng)) {
-            unBoundOng = "0";
-        }
-        BalanceDto balanceDto3 = BalanceDto.builder()
-                .assetName(ConstantParam.UNBOUND_ONG)
-                .assetType(ConstantParam.ASSET_TYPE_NATIVE)
-                .balance((new BigDecimal(unBoundOng)))
-                .contractHash(ConstantParam.CONTRACTHASH_ONG)
-                .build();
-        balanceList.add(balanceDto3);
+        // //Claimable ONG
+        // String unBoundOng = sdk.getUnBoundOng(address);
+        // if (Helper.isEmptyOrNull(unBoundOng)) {
+        //     unBoundOng = "0";
+        // }
+        // BalanceDto balanceDto3 = BalanceDto.builder()
+        //         .assetName(ConstantParam.UNBOUND_ONG)
+        //         .assetType(ConstantParam.ASSET_TYPE_NATIVE)
+        //         .balance((new BigDecimal(unBoundOng)))
+        //         .contractHash(ConstantParam.CONTRACTHASH_ONG)
+        //         .build();
+        // balanceList.add(balanceDto3);
 
         //ONT
         BalanceDto balanceDto4 = BalanceDto.builder()

@@ -365,25 +365,28 @@ public class TokenServiceImpl implements ITokenService {
     @Override
     public ResponseBean queryPrice(String token, String fiat) {
         String key = token + "-" + fiat;
-        CoinMarketCapQuotes quotes = tokenQuotes.get(key);
-        TokenPriceDto dto = TokenPriceDto.from(token, quotes);
+        // CoinMarketCapQuotes quotes = tokenQuotes.get(key);
+
+            
+        TokenPriceDto dto = TokenPriceDto.zero(token);
+        // TokenPriceDto dto = TokenPriceDto.from(token, quotes);
         return new ResponseBean(ErrorInfo.SUCCESS.code(), ErrorInfo.SUCCESS.desc(), dto);
     }
 
-    private LoadingCache<String, CoinMarketCapQuotes> tokenQuotes;
+    // private LoadingCache<String, CoinMarketCapQuotes> tokenQuotes;
 
-    @Autowired
-    public void setParamsConfig(ParamsConfig paramsConfig) {
-        tokenQuotes = Caffeine.newBuilder()
-                .expireAfterWrite(Duration.ofMinutes(paramsConfig.getCoinMarketCapRefreshInterval()))
-                .build(key -> {
-                    String[] parts = key.split("-");
-                    if (parts.length < 2) {
-                        throw new IllegalArgumentException("invalid token-fiat pair: " + key);
-                    }
-                    return coinMarketCapApi.getQuotes(parts[0], parts[1]);
-                });
-    }
+    // @Autowired
+    // public void setParamsConfig(ParamsConfig paramsConfig) {
+    //     tokenQuotes = Caffeine.newBuilder()
+    //             .expireAfterWrite(Duration.ofMinutes(paramsConfig.getCoinMarketCapRefreshInterval()))
+    //             .build(key -> {
+    //                 String[] parts = key.split("-");
+    //                 if (parts.length < 2) {
+    //                     throw new IllegalArgumentException("invalid token-fiat pair: " + key);
+    //                 }
+    //                 return coinMarketCapApi.getQuotes(parts[0], parts[1]);
+    //             });
+    // }
 
 
     @Override

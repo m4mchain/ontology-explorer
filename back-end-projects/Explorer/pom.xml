@@ -104,9 +104,9 @@
 
 		<!--ontology-javasdk -->
 		<dependency>
-			<groupId>com.github.ontio</groupId>
+			<groupId>com.github.m4mchain</groupId>
 			<artifactId>ontology-sdk-java</artifactId>
-			<version>1.10.8</version>
+			<version>1.0.0</version>
 		</dependency>
 
 

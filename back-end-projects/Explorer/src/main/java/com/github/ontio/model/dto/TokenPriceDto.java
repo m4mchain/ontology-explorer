@@ -47,4 +47,15 @@ public class TokenPriceDto implements Serializable {
 		return dto;
 	}
 
+	public static TokenPriceDto zero(String token) {
+		TokenPriceDto dto = new TokenPriceDto();
+		dto.setToken(token);
+		dto.setRank(0);
+		Map<String, Price> prices = new HashMap<>();
+			Price price = new Price(BigDecimal.valueOf(0),BigDecimal.valueOf(0));
+			prices.put("C", price);
+		dto.setPrices(prices);
+		return dto;
+	}
+
 }

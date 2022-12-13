@@ -44,13 +44,13 @@ public class ConstantParam {
     /**
      * ONT asset
      */
-    public static final String ONT = "ont";
+    public static final String ONT = "cct";
 
-    public static final String ONG = "ong";
+    public static final String ONG = "ccg";
 
-    public static final String UNBOUND_ONG = "unboundong";
+    public static final String UNBOUND_ONG = "unboundccg";
 
-    public static final String WAITBOUND_ONG = "waitboundong";
+    public static final String WAITBOUND_ONG = "waitboundccg";
 
     public static final String OEP8_PUMPKIN_PREFIX = "pumpkin";
 
